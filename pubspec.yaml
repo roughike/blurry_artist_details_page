@@ -1,0 +1,20 @@
+name: blurry_artist_details_page
+description: A new Flutter application.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.0
+  url_launcher: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/avatar.png
+  - assets/backdrop.png
+  - assets/video1_thumb.png
+  - assets/video2_thumb.png
