@@ -1,25 +1,22 @@
 import 'dart:ui' as ui;
 
-import 'package:blurry_artist_details_page/artist.dart';
+import 'package:blurry_artist_details_page/models.dart';
 import 'package:blurry_artist_details_page/video_card.dart';
 import 'package:flutter/material.dart';
 
-class ArtistDetailsPage extends StatefulWidget {
+class ArtistDetailsPage extends StatelessWidget {
   ArtistDetailsPage(this.artist);
   final Artist artist;
 
-  @override
-  _ArtistDetailsPageState createState() => new _ArtistDetailsPageState();
-}
-
-class _ArtistDetailsPageState extends State<ArtistDetailsPage> {
   Widget _buildContent() {
     return new SingleChildScrollView(
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[_buildAvatar()]
-          ..add(_buildInfo())
-          ..add(_buildVideoScroller()),
+        children: <Widget>[
+          _buildAvatar(),
+          _buildInfo(),
+          _buildVideoScroller(),
+        ],
       ),
     );
   }
@@ -38,7 +35,7 @@ class _ArtistDetailsPageState extends State<ArtistDetailsPage> {
       ),
       padding: const EdgeInsets.all(3.0),
       child: new ClipOval(
-        child: new Image.asset(widget.artist.avatar),
+        child: new Image.asset(artist.avatar),
       ),
     );
   }
@@ -50,7 +47,7 @@ class _ArtistDetailsPageState extends State<ArtistDetailsPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           new Text(
-            widget.artist.firstName + '\n' + widget.artist.lastName,
+            artist.firstName + '\n' + artist.lastName,
             style: new TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -58,7 +55,7 @@ class _ArtistDetailsPageState extends State<ArtistDetailsPage> {
             ),
           ),
           new Text(
-            widget.artist.location,
+            artist.location,
             style: new TextStyle(
               color: Colors.white.withOpacity(0.85),
               fontWeight: FontWeight.w500,
@@ -71,7 +68,7 @@ class _ArtistDetailsPageState extends State<ArtistDetailsPage> {
             height: 1.0,
           ),
           new Text(
-            widget.artist.biography,
+            artist.biography,
             style: new TextStyle(
               color: Colors.white.withOpacity(0.85),
               height: 1.4,
@@ -90,9 +87,9 @@ class _ArtistDetailsPageState extends State<ArtistDetailsPage> {
         child: new ListView.builder(
           scrollDirection: Axis.horizontal,
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          itemCount: widget.artist.videos.length,
+          itemCount: artist.videos.length,
           itemBuilder: (BuildContext context, int index) {
-            var video = widget.artist.videos[index];
+            var video = artist.videos[index];
             return new VideoCard(video);
           },
         ),
@@ -106,7 +103,7 @@ class _ArtistDetailsPageState extends State<ArtistDetailsPage> {
       body: new Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          new Image.asset(widget.artist.backdropPhoto, fit: BoxFit.cover),
+          new Image.asset(artist.backdropPhoto, fit: BoxFit.cover),
           new BackdropFilter(
             filter: new ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: new Container(

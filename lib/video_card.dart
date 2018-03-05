@@ -1,4 +1,4 @@
-import 'package:blurry_artist_details_page/artist.dart';
+import 'package:blurry_artist_details_page/models.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -20,12 +20,32 @@ class VideoCard extends StatelessWidget {
     );
   }
 
-  Widget _buildThumbnailWithPlayButton() {
-    var playButton = new Material(
+  Widget _buildThumbnail() {
+    return new ClipRRect(
+      borderRadius: new BorderRadius.circular(8.0),
+      child: new Stack(
+        children: <Widget>[
+          new Image.asset(video.thumbnail),
+          new Positioned(
+            bottom: 12.0,
+            right: 12.0,
+            child: _buildPlayButton(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPlayButton() {
+    return new Material(
       color: Colors.black87,
       type: MaterialType.circle,
       child: new InkWell(
-        onTap: _openVideo,
+        onTap: () async {
+          if (await canLaunch(video.url)) {
+            await launch(video.url);
+          }
+        },
         child: new Padding(
           padding: const EdgeInsets.all(8.0),
           child: new Icon(
@@ -35,26 +55,6 @@ class VideoCard extends StatelessWidget {
         ),
       ),
     );
-
-    return new ClipRRect(
-      borderRadius: new BorderRadius.circular(8.0),
-      child: new Stack(
-        children: <Widget>[
-          new Image.asset(video.thumbnail),
-          new Positioned(
-            bottom: 12.0,
-            right: 12.0,
-            child: playButton,
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _openVideo() async {
-    if (await canLaunch(video.url)) {
-      await launch(video.url);
-    }
   }
 
   Widget _buildInfo() {
@@ -77,7 +77,7 @@ class VideoCard extends StatelessWidget {
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          new Flexible(flex: 3, child: _buildThumbnailWithPlayButton()),
+          new Flexible(flex: 3, child: _buildThumbnail()),
           new Flexible(flex: 2, child: _buildInfo()),
         ],
       ),
