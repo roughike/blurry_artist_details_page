@@ -1,4 +1,3 @@
-import 'package:blurry_artist_details_page/artist_details_page.dart';
 import 'package:blurry_artist_details_page/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -48,7 +47,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new ArtistDetailsPage(andy),
+      home: new Scaffold(),
     );
   }
 }
