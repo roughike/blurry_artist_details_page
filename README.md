@@ -1,8 +1,7 @@
-# blurry_artist_details_page
+# What is it?
 
-A new Flutter application.
+![The end result](result.png)
 
-## Getting Started
+Sample project for creating an artist details page in Flutter.
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+[Read the blogpost here](https://flutter.rocks/2018/03/06/from-wireframes-to-flutter-blurry-artist-details-page/).
