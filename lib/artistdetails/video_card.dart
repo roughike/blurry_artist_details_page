@@ -1,4 +1,4 @@
-import 'package:blurry_artist_details_page/models.dart';
+import 'package:blurry_artist_details_page/data/models.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

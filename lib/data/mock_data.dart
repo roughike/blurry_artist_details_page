@@ -1,4 +1,4 @@
-import 'package:blurry_artist_details_page/models.dart';
+import 'package:blurry_artist_details_page/data/models.dart';
 
 class MockData {
   static final Artist andy = new Artist(

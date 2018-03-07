@@ -1,4 +1,4 @@
-import 'package:blurry_artist_details_page/artist_details_container.dart';
+import 'package:blurry_artist_details_page/artistdetails/artist_details_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

@@ -1,5 +1,5 @@
-import 'package:blurry_artist_details_page/artist_details_page.dart';
-import 'package:blurry_artist_details_page/mock_data.dart';
+import 'package:blurry_artist_details_page/artistdetails/artist_details_page.dart';
+import 'package:blurry_artist_details_page/data/mock_data.dart';
 import 'package:flutter/material.dart';
 
 class ArtistsDetailsContainer extends StatefulWidget {
