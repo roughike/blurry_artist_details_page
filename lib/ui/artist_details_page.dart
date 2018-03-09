@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'dart:ui' as ui;
 
-import 'package:blurry_artist_details_page/artistdetails/artist_details_animator.dart';
 import 'package:blurry_artist_details_page/data/models.dart';
-import 'package:blurry_artist_details_page/artistdetails/video_card.dart';
+import 'package:blurry_artist_details_page/ui/artist_details_animator.dart';
+import 'package:blurry_artist_details_page/ui/video_card.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
