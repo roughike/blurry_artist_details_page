@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:blurry_artist_details_page/data/models.dart';
@@ -84,15 +83,12 @@ class ArtistDetailsPage extends StatelessWidget {
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          new Opacity(
-            opacity: animation.nameOpacity.value,
-            child: new Text(
-              artist.firstName + '\n' + artist.lastName,
-              style: new TextStyle(
-                color: Colors.white.withOpacity(animation.nameOpacity.value),
-                fontWeight: FontWeight.bold,
-                fontSize: 30.0,
-              ),
+          new Text(
+            artist.firstName + '\n' + artist.lastName,
+            style: new TextStyle(
+              color: Colors.white.withOpacity(animation.nameOpacity.value),
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0,
             ),
           ),
           new Text(
@@ -130,7 +126,7 @@ class ArtistDetailsPage extends StatelessWidget {
           0.0,
         ),
         child: new Opacity(
-          opacity: min(1.0, animation.videoScrollerOpacity.value),
+          opacity: animation.videoScrollerOpacity.value,
           child: new SizedBox.fromSize(
             size: new Size.fromHeight(245.0),
             child: new ListView.builder(
