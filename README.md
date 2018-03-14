@@ -1,8 +1,7 @@
-# blurry_artist_details_page
+# What is it?
 
-A new Flutter application.
+![The end result](result.gif)
 
-## Getting Started
+Sample project for orchestrating multiple animations into a visual enter animation in Flutter.
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+[Read the article here](https://flutter.rocks/2018/03/14/orchestrating-multiple-animations-into-visual-enter-animation/).
