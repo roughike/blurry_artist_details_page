@@ -9,8 +9,8 @@ class ArtistDetailsPage extends StatelessWidget {
   final Artist artist;
 
   Widget _buildContent() {
-    return new SingleChildScrollView(
-      child: new Column(
+    return SingleChildScrollView(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           _buildAvatar(),
@@ -22,51 +22,51 @@ class ArtistDetailsPage extends StatelessWidget {
   }
 
   Widget _buildAvatar() {
-    return new Container(
+    return Container(
       width: 110.0,
       height: 110.0,
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: new Border.all(color: Colors.white30),
+        border: Border.all(color: Colors.white30),
       ),
       margin: const EdgeInsets.only(top: 32.0, left: 16.0),
       padding: const EdgeInsets.all(3.0),
-      child: new ClipOval(
-        child: new Image.asset(artist.avatar),
+      child: ClipOval(
+        child: Image.asset(artist.avatar),
       ),
     );
   }
 
   Widget _buildInfo() {
-    return new Padding(
+    return Padding(
       padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
-      child: new Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          new Text(
+          Text(
             artist.firstName + '\n' + artist.lastName,
-            style: new TextStyle(
+            style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 30.0,
             ),
           ),
-          new Text(
+          Text(
             artist.location,
-            style: new TextStyle(
+            style: TextStyle(
               color: Colors.white.withOpacity(0.85),
               fontWeight: FontWeight.w500,
             ),
           ),
-          new Container(
+          Container(
             color: Colors.white.withOpacity(0.85),
             margin: const EdgeInsets.symmetric(vertical: 16.0),
             width: 225.0,
             height: 1.0,
           ),
-          new Text(
+          Text(
             artist.biography,
-            style: new TextStyle(
+            style: TextStyle(
               color: Colors.white.withOpacity(0.85),
               height: 1.4,
             ),
@@ -77,17 +77,17 @@ class ArtistDetailsPage extends StatelessWidget {
   }
 
   Widget _buildVideoScroller() {
-    return new Padding(
+    return Padding(
       padding: const EdgeInsets.only(top: 16.0),
-      child: new SizedBox.fromSize(
-        size: new Size.fromHeight(245.0),
-        child: new ListView.builder(
+      child: SizedBox.fromSize(
+        size: Size.fromHeight(245.0),
+        child: ListView.builder(
           scrollDirection: Axis.horizontal,
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           itemCount: artist.videos.length,
           itemBuilder: (BuildContext context, int index) {
             var video = artist.videos[index];
-            return new VideoCard(video);
+            return VideoCard(video);
           },
         ),
       ),
@@ -96,14 +96,14 @@ class ArtistDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Stack(
+    return Scaffold(
+      body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          new Image.asset(artist.backdropPhoto, fit: BoxFit.cover),
-          new BackdropFilter(
-            filter: new ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-            child: new Container(
+          Image.asset(artist.backdropPhoto, fit: BoxFit.cover),
+          BackdropFilter(
+            filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            child: Container(
               color: Colors.black.withOpacity(0.5),
               child: _buildContent(),
             ),
